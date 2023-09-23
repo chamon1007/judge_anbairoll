@@ -74,7 +74,7 @@ if uploaded_file is not None:
         (text_width, text_height), baseline = cv2.getTextSize(label, font, font_scale, thickness)
         
         # テキストの背景の座標を計算します。
-        padding = 5  # 任意のパディングを設定します。
+        padding = 20  # 任意のパディングを設定します。
         pt1 = (x, y)  # テキストの左上の点
         pt2 = (x + text_width + padding, y - text_height - padding)  # テキストの右下の点
         
