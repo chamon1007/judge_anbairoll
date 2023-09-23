@@ -43,7 +43,7 @@ if uploaded_file is not None:
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     img = cv2.imdecode(file_bytes, 1)
     cv2.resize(img, (160, 160))
-    img = scale_to_height(img, 3000)
+    img = scale_to_height(img, 2500)
     
     # 顔の検出
     faces = detector.detect_faces(img)
