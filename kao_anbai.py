@@ -68,13 +68,33 @@ if uploaded_file is not None:
         
         # 予測結果の表示
         label = "{}".format(class_names[predicted_index])
+        font_scale = 3
+        thickness = 3
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        (text_width, text_height), baseline = cv2.getTextSize(label, font, font_scale, thickness)
+        
+        # テキストの背景の座標を計算します。
+        padding = 5  # 任意のパディングを設定します。
+        pt1 = (x, y)  # テキストの左上の点
+        pt2 = (x + text_width + padding, y - text_height - padding)  # テキストの右下の点
+        
+        # 色を選択します。
+        color = (0, 0, 0)  # 黒で背景を塗りつぶします。
         if predicted_index == 0:
-            cv2.putText(img, label, (x, y - 10),cv2.FONT_HERSHEY_SIMPLEX, 4, (0, 0, 255), 3)
+            text_color = (0, 0, 255)  # テキストの色を赤に設定します。
         elif predicted_index == 1:
-            cv2.putText(img, label, (x, y - 10),cv2.FONT_HERSHEY_PLAIN, 4, (255, 0, 0), 3)
+            text_color = (255, 0, 0)  # テキストの色を青に設定します。
         else:
-            cv2.putText(img, label, (x, y - 10),cv2.FONT_HERSHEY_PLAIN, 4, (0, 255, 0), 3)
-        cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
+            text_color = (0, 255, 0)  # テキストの色を緑に設定します。
+        
+        # 背景を描画します。
+        cv2.rectangle(img, pt1, pt2, color, -1)  # -1 は塗りつぶしを意味します。
+        
+        # テキストを描画します。
+        cv2.putText(img, label, (x + padding, y - padding), font, font_scale, text_color, thickness)
+        
+        # 最後に、元の矩形を描画します。
+        cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
     # Streamlitに画像を表示
     st.image(img, channels="BGR", use_column_width=True)
