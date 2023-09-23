@@ -97,7 +97,7 @@ if uploaded_file is not None:
         cv2.putText(img, label, (x + padding, y - padding), font, font_scale, text_color, thickness)
         
         # 最後に、元の矩形を描画します。
-        cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        cv2.rectangle(img, (x, y), (x + w, y + h), text_color, 2)
 
     # Streamlitに画像を表示
     st.image(img, channels="BGR", use_column_width=True)
