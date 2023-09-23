@@ -33,10 +33,10 @@ def scale_to_height(img, height):
 
 # Streamlit UI
 st.title("正義の心 Detector")
-st.write("アンパンマン：圧倒的、正義の味方")
+uploaded_file = st.file_uploader("画像をアップして判定", type=["jpg", "jpeg", "png"])
+st.write("アンパンマン：圧倒的、正義の味方　バイキンマン：正義の敵、いたずら好き　ロールパンナ：正義と悪の間で葛藤")
 st.write("バイキンマン：正義の敵、いたずら好き")
 st.write("ロールパンナ：正義と悪の間で葛藤")
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     # 画像の読み込み
