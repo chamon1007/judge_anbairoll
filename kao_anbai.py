@@ -32,7 +32,7 @@ def scale_to_height(img, height):
     return dst
 
 # Streamlit UI
-st.title("あなたは　アンパンマン？　バイキンマン？　ロールパンナ？")
+st.title("あなたはアンパン？バイキン？ロールパン？")
 st.write("アンパンマン：圧倒的、正義の味方")
 st.write("バイキンマン：正義の敵、いたずら好き")
 st.write("ロールパンナ：正義と悪の間で葛藤")
