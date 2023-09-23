@@ -32,7 +32,7 @@ def scale_to_height(img, height):
     return dst
 
 # Streamlit UI
-st.title("あなたはアンパン？バイキン？ロールパン？")
+st.title("正義の心 Detector")
 st.write("アンパンマン：圧倒的、正義の味方")
 st.write("バイキンマン：正義の敵、いたずら好き")
 st.write("ロールパンナ：正義と悪の間で葛藤")
@@ -43,7 +43,7 @@ if uploaded_file is not None:
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     img = cv2.imdecode(file_bytes, 1)
     cv2.resize(img, (160, 160))
-    img = scale_to_height(img, 2000)
+    img = scale_to_height(img, 3000)
     
     # 顔の検出
     faces = detector.detect_faces(img)
