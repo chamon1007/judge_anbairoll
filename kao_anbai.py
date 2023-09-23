@@ -71,8 +71,8 @@ if uploaded_file is not None:
         
         # 予測結果の表示
         label = "{}".format(class_names[predicted_index])
-        font_scale = 3
-        thickness = 3
+        font_scale = 5
+        thickness = 5
         font = cv2.FONT_HERSHEY_SIMPLEX
         (text_width, text_height), baseline = cv2.getTextSize(label, font, font_scale, thickness)
         
